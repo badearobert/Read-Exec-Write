@@ -7,21 +7,8 @@
 
 struct DataSet
 {
-	// init values, on ctor 
-	DataSet()
-	{
-		clearSet();
-	}
-
-	DataInput input;
-	DataOutput output;
-
-	// clear the data 
-	void clearSet()
-	{
-		input.clear();
-		output.clear();
-	}
+   DataInput input   = {};
+   DataOutput output = {};
 };
 
 #endif // _DATASET_HPP_

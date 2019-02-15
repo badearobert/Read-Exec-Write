@@ -1,44 +1,42 @@
 #include "Contest.hpp"
 #include "IOCommands.hpp"
-#include "Helper.hpp"
+#include "Constants.hpp"
 #include <iostream>
 #include <fstream>
 
-using namespace std;
+#define USE_DEBUG 0
 
 void CContest::clearData()
 {
-	myDataSet.clearSet();
+   myDataSet = {};
 }
 
-void CContest::startContest()
+void CContest::start()
 {
-	setAlgorithm(unique_ptr<IAlgorithm>(new CAlgorithmImpl_1));
+	setAlgorithm(std::unique_ptr<IAlgorithm>(new CAlgorithmImpl_1));
 
 	for (const auto &item : NConstants::FILES)
 	{
-		// clear data
 		clearData();
 
 		// reading data
 		CFileReaderImpl reader(self(), item.input);
-		_ASSERT(reader.execute());
+		reader.execute();
 		
-		// OPTIONAL - display the input data
-		//myDataSet.input.display();
-
-		// applying algorithm
+#if USE_DEBUG
+		myDataSet.input.display();
+#endif
 		if (mAlgorithm)
 		{
-			mAlgorithm->executeAlgorithm(myDataSet);
+         mAlgorithm->executeAlgorithm(myDataSet);
 		}
 
-		// OPTIONAL - display the output data
-		//myDataSet.output.display();
+#if USE_DEBUG
+	   myDataSet.output.display();
+#endif
 
-		// writing data
 		CFileWriterImpl writer(self(), item.output);
-		_ASSERT(writer.execute());
+		writer.execute();
 
 		std::cout << std::endl;
 	}
@@ -51,8 +49,7 @@ void CContest::startContest()
 std::istream& operator >> (std::istream & in, CContest &obj)
 {
 	// @TODO: read into the input data
-
-	//in >> obj.myDataSet.input.data << endl;
+   in >> obj.myDataSet.input.temp;
 
 	return in;
 }
@@ -60,8 +57,7 @@ std::istream& operator >> (std::istream & in, CContest &obj)
 std::ostream& operator<<(std::ostream & out, const CContest &obj)
 {
 	// @TODO: write into the output data
-	
-	//out << obj.myDataSet.output.data << endl;
+	out << obj.myDataSet.output.temp << std::endl;
 
 	return out;
 }

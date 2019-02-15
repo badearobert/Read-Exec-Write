@@ -1,6 +1,6 @@
 #include "IOCommands.hpp"
 #include "Contest.hpp"
-
+#include <string>
 //------------------------------------------------------------------------
 //							FILE READER IMPL
 //------------------------------------------------------------------------
@@ -8,7 +8,6 @@ CFileReaderImpl::CFileReaderImpl(CContest& contest, const std::string& path)
 	: IFileCommand(path)
 	, mContest(contest)
 { 
-
 }
 
 bool CFileReaderImpl::execute() 

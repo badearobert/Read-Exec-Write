@@ -5,15 +5,11 @@
 #include <iostream>
 
 using std::cout;
-using std::endl;
-
+//------------------------------------------------------------------------
+//							DATA INPUT STRUCTURES
+//------------------------------------------------------------------------
 struct DataInput
 {
-	void clear() 
-	{
-		*this = DataInput{};
-	}
-
 	void display() const
 	{
 		cout << "\n----------------------------------\n";
@@ -22,6 +18,7 @@ struct DataInput
 		cout << "\n----------------------------------\n";
 	}
 	// @TODO: add member variables as input 
+   int temp;
 };
 
 #endif

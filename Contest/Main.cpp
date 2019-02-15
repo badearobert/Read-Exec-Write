@@ -1,15 +1,11 @@
 #include <iostream>
-#include <conio.h>
-
 #include "Contest.hpp"
-
-#define USE_DEBUG 1
 
 int main()
 {
 	CContest obj;
-	obj.startContest();
+	obj.start();
 
 	std::cout << std::endl << "Done.";
-	_getch();
+   std::cin.get();
 }

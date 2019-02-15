@@ -3,15 +3,16 @@
 #define _CONSTANTS_HPP_
 #include <vector>
 
-struct DATA {
-	DATA(std::string in, std::string out) : input(in), output(out) { }
+struct Data {
+   Data(std::string in, std::string out) : input(in), output(out) { }
 	std::string input;
 	std::string output;
 };
 namespace NConstants
 {
 	// The linkage between input and output files
-	const std::vector<DATA> FILES { 
+	const std::vector<Data> FILES 
+   {
 		{ "input\\1.in", "output\\1.out"},
 		{ "input\\2.in", "output\\2.out"},
 	};

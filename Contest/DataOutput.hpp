@@ -5,17 +5,11 @@
 #include <iostream>
 
 using std::cout;
-using std::endl;
 //------------------------------------------------------------------------
 //							DATA OUTPUT STRUCTURES
 //------------------------------------------------------------------------
 struct DataOutput 
 {
-	virtual void clear() 
-	{
-		*this = DataOutput{};
-	}
-
 	void display() const
 	{
 		cout << "\n----------------------------------\n";
@@ -24,6 +18,7 @@ struct DataOutput
 		cout << "\n----------------------------------\n";
 	}
 	// @TODO: add member variables as output 
+   int temp;
 };
 
 #endif

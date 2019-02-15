@@ -2,7 +2,6 @@
 #define _IOCOMMANDS_HPP_
 #pragma once
 
-#include <string>
 #include <fstream>
 #include "Contest.hpp"
 
@@ -24,15 +23,12 @@ public:
 		}
 	}
 
-	// either read or write from the file
 	virtual bool execute() = 0;
 
 	const bool isOpen() const { return mFile.is_open(); }
-protected:
-	// the path of the file, received on ctor
-	std::string mPath;
 
-	// the file stream
+protected:
+	std::string mPath;
 	std::fstream mFile;
 };
 
